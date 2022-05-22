@@ -71,12 +71,12 @@ void main(void) {
     CM1 = 1;
     CM0 = 1;
 
-    RESie8 = 1;
+    RESie8 = 1;//сброс счётчика, высоким уровнем, при включении
     while (1){
       //  DIG1 = 1;
         __delay_ms(1);
          
-        RESie8 = 0;
+        RESie8 = 0;//сброс счётчика при вкл
         
         for (l=0;l<999;l++){
             senddata (digit [q], digit [w], digit [e]);
