@@ -63,7 +63,7 @@ void main(void) {
     unsigned char w = 0;
     unsigned char q = 0;
     PORTA = 0b00000000;
-    TRISA = 0b00000000;
+    TRISA = 0b00000110;
     PORTC = 0b00000000;
     TRISC = 0b00000000;
     ANSEL = 0b00000000;
