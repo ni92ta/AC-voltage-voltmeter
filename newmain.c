@@ -7,11 +7,7 @@
 #define _XTAL_FREQ 4000000
 #include <xc.h>
 #include "newfile.h"
-#define SER RC5// данные
-#define SRCLK RC4// загрузка битов 
-#define RCLK RC3// вывод данных
 
-#define DIG1 RC0// вывод данных
 #define RESie8 RC1// сброс микросхемы ИЕ8
 unsigned char i;
 
@@ -19,42 +15,6 @@ unsigned char i;
 unsigned char digit [11] = { 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110,//0, 1, 2, 3, 4,
 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111, 0b00000000//5, 6, 7, 8, 9  
 };
-//-------------------Отправка данных на сдвиговый регистр-----------------------
-void senddata (unsigned char data, unsigned char data2, unsigned char data3){
-    unsigned char outt;
-    unsigned char u = 0;
-    for (u=0;u<3;u++){   
-RCLK = 0;            
-for (i=0;i<8;i++){   
-    SRCLK = 0;
-    __delay_us(1);
-    if (outt & 0x80){
-        SER = 1;
-    }
-    else{
-        SER = 0;
-    }
-    outt=(outt<<1);
-    SRCLK = 1;
-    __delay_us(1);
-                }  
- RCLK = 1; 
- DIG1 = 1; 
-__delay_ms(5);
-                    if (u == 2){
-                    outt = data;
-                               }
-            
-                    if (u == 0){
-                    outt = data2;
-                               }
-
-                    if (u == 1){
-                    outt = data3;
-                               }
-DIG1 = 0;
-                   }    
-}
 //------------------------------------------------------------------------------
 
 void main(void) {
