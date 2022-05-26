@@ -33,11 +33,8 @@ void main(void) {
 
     RESie8 = 1;//сброс счётчика, высоким уровнем, при включении
     while (1){
-      //  DIG1 = 1;
         __delay_ms(1);
-         
         RESie8 = 0;//сброс счётчика при вкл
-        
         for (l=0;l<999;l++){
             senddata (digit [q], digit [w], digit [e]);
             e++;
@@ -52,40 +49,9 @@ void main(void) {
             
                                     if (q == 9){
                 q = 0;
-               // q++;
             }
             
            senddata (digit [q], digit [w], digit [e]); 
                            }
-   
-       
-      // senddata (digit [10], digit [2], digit [3]);  
-        
-        
-         //   __delay_ms(1000);
-            /*
-    senddata (digit [1]); 
-            __delay_ms(1000);
-    senddata (digit [2]); 
-    //DIG1 = 0;
-     //DIG2 = 1;
-            __delay_ms(1000);
-    senddata (digit [3]); 
-            __delay_ms(1000);
-    senddata (digit [4]); 
-            __delay_ms(1000);
-    senddata (digit [5]);
-        DIG2 = 0;
-     DIG3 = 1;
-            __delay_ms(1000);
-    senddata (digit [6]); 
-            __delay_ms(1000);
-    senddata (digit [7]); 
-            __delay_ms(1000);
-    senddata (digit [8]); 
-            __delay_ms(1000);
-    senddata (digit [9]);
-    DIG3 = 0;
-              */
     }
 }
