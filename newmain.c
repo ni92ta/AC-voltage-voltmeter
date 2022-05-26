@@ -21,7 +21,8 @@ void main(void) {
        // IOCA = 0b00000100;//включаем прерывание на RA2 ножка 11 
     INTCON = 0b10110000;//0b1xxxxxxx включаем глобальные прерывания,0bxx1xxxxx прерывание по переполнению таймера
     //0bxxx1xxxx и внешнее прерывание на RA2 11 ножка
-    OPTION_REG |= (1<<INTEDG);//прерывание на INT по переднему фронту
+    OPTION_REG |= (1<<INTEDG) | (1<<PS2) | (1<<PS1) | (1<<PS0);//прерывание на 
+    //INT по переднему фронту; предделитель таймера на 256
     unsigned char l;
     unsigned char e = 0;
     unsigned char w = 0;
